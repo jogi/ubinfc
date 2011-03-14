@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/contactTag">
+        <ImageView android:id="@+id/ImageView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/facebook71x71"></ImageView>
+        <TextView android:id="@+id/TextView02" android:text="@string/facebook" android:layout_width="200dip" android:layout_height="match_parent" android:textStyle="bold" android:textSize="14.5sp"></TextView>
+        <Button android:text="@string/connect" android:id="@+id/Button02" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    </TableRow>
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/twitterTag">
+        <ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/twitter72x72"></ImageView>
+        <TextView android:id="@+id/TextView01" android:layout_width="200dip" android:layout_height="match_parent" android:text="@string/twitter"></TextView>
+        <Button android:text="@string/connect" android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    </TableRow>
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/facebookTag">
+        <ImageView android:src="@drawable/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/facebookIcon"></ImageView>
+        <TextView android:id="@+id/textView1" android:layout_height="match_parent" android:layout_width="200dip" android:text="@string/contact"></TextView>
+    </TableRow>
+</TableLayout>
