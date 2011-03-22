@@ -13,21 +13,22 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.android.AsyncFacebookRunner;
-import com.facebook.android.BaseDialogListener;
-import com.facebook.android.BaseRequestListener;
 import com.facebook.android.Facebook;
 import com.facebook.android.FacebookError;
-import com.facebook.android.LoginButton;
 import com.facebook.android.R;
-import com.facebook.android.SessionEvents;
-import com.facebook.android.SessionEvents.AuthListener;
-import com.facebook.android.SessionEvents.LogoutListener;
-import com.facebook.android.SessionStore;
 import com.facebook.android.Util;
+import com.proj.ubinfc.facebook.BaseDialogListener;
+import com.proj.ubinfc.facebook.BaseRequestListener;
+import com.proj.ubinfc.facebook.LoginButton;
+import com.proj.ubinfc.facebook.SessionEvents;
+import com.proj.ubinfc.facebook.SessionStore;
+import com.proj.ubinfc.facebook.SessionEvents.AuthListener;
+import com.proj.ubinfc.facebook.SessionEvents.LogoutListener;
+import com.proj.ubinfc.twitter.PrepareRequestTokenActivity;
 
-public class TestActivity extends Activity {
+public class SocialActivity extends Activity {
     
-	// Your Facebook Application ID must be set before running this TestActivity
+	// Your Facebook Application ID must be set before running this SocialActivity
     // See http://www.facebook.com/developers/createapp.php
     public static final String APP_ID = "186706314706452";
     // The permissions that the app should request from the user
@@ -38,7 +39,8 @@ public class TestActivity extends Activity {
     private TextView mText;
     private Button mRequestButton;
     private Button mPostButton;
-
+    private Button twtLoginButton;
+    
     private Facebook mFacebook;
     private AsyncFacebookRunner mAsyncRunner;
 
@@ -52,6 +54,7 @@ public class TestActivity extends Activity {
         mText = (TextView) findViewById(R.id.txt);
         mRequestButton = (Button) findViewById(R.id.requestButton);
         mPostButton = (Button) findViewById(com.facebook.android.R.id.postButton);
+        twtLoginButton = (Button) findViewById(R.id.twtLoginButton);
         
         mFacebook = new Facebook(APP_ID);
        	mAsyncRunner = new AsyncFacebookRunner(mFacebook);
@@ -77,19 +80,23 @@ public class TestActivity extends Activity {
             	params.putString("id", "brent");
             	//params.putString("display", "popup");
             	Log.i("In on click", params.toString());
-                //mFacebook.dialog(TestActivity.this, "feed", new SampleDialogListener());
-                mFacebook.dialog(TestActivity.this, "friends", params, new SampleDialogListener());
+                //mFacebook.dialog(SocialActivity.this, "feed", new SampleDialogListener());
+                mFacebook.dialog(SocialActivity.this, "friends", params, new SampleDialogListener());
             }
         });
-        mPostButton.setVisibility(mFacebook.isSessionValid() ?
-                View.VISIBLE :
-                View.INVISIBLE);
-
+        mPostButton.setVisibility(mFacebook.isSessionValid() ? View.VISIBLE : View.INVISIBLE);
+        
+        twtLoginButton.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {            	
+            	Log.i("Twitter login", "Twitter login initiated!");
+            	Intent i = new Intent(getApplicationContext(), PrepareRequestTokenActivity.class);				
+				startActivity(i);                
+            }
+        });
     }
     
     @Override
-    protected void onActivityResult(int requestCode, int resultCode,
-                                    Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mFacebook.authorizeCallback(requestCode, resultCode, data);
     }
 
@@ -123,7 +130,7 @@ public class TestActivity extends Activity {
         public void onComplete(final String response, final Object state) {
             try {
                 // process the response here: executed in background thread
-                Log.d("Facebook-TestActivity", "Response: " + response.toString());
+                Log.d("Facebook-SocialActivity", "Response: " + response.toString());
                 JSONObject json = Util.parseJson(response);
                 System.out.println("JSON response : "+json.toString());
                 final String name = json.getString("name");
@@ -133,63 +140,16 @@ public class TestActivity extends Activity {
                 // if we do not do this, an runtime exception will be generated
                 // e.g. "CalledFromWrongThreadException: Only the original
                 // thread that created a view hierarchy can touch its views."
-                TestActivity.this.runOnUiThread(new Runnable() {
+                SocialActivity.this.runOnUiThread(new Runnable() {
                     public void run() {
                         mText.setText("Hello there, " + id + " : " + name + "!");
                     }
                 });
             } catch (JSONException e) {
-                Log.w("Facebook-TestActivity", "JSON Error in response");
+                Log.w("Facebook-SocialActivity", "JSON Error in response");
             } catch (FacebookError e) {
-                Log.w("Facebook-TestActivity", "Facebook Error: " + e.getMessage());
+                Log.w("Facebook-SocialActivity", "Facebook Error: " + e.getMessage());
             }
-        }
-    }
-
-    public class SampleUploadListener extends BaseRequestListener {
-
-        public void onComplete(final String response, final Object state) {
-            try {
-                // process the response here: (executed in background thread)
-                Log.d("Facebook-TestActivity", "Response: " + response.toString());
-                JSONObject json = Util.parseJson(response);
-                final String src = json.getString("src");
-
-                // then post the processed result back to the UI thread
-                // if we do not do this, an runtime exception will be generated
-                // e.g. "CalledFromWrongThreadException: Only the original
-                // thread that created a view hierarchy can touch its views."
-                TestActivity.this.runOnUiThread(new Runnable() {
-                    public void run() {
-                        mText.setText("Hello there, photo has been uploaded at \n" + src);
-                    }
-                });
-            } catch (JSONException e) {
-                Log.w("Facebook-TestActivity", "JSON Error in response");
-            } catch (FacebookError e) {
-                Log.w("Facebook-TestActivity", "Facebook Error: " + e.getMessage());
-            }
-        }
-    }
-    public class WallPostRequestListener extends BaseRequestListener {
-
-        public void onComplete(final String response, final Object state) {
-            Log.d("Facebook-TestActivity", "Got response: " + response);
-            String message = "<empty>";
-            try {
-                JSONObject json = Util.parseJson(response);
-                message = json.getString("message");
-            } catch (JSONException e) {
-                Log.w("Facebook-TestActivity", "JSON Error in response");
-            } catch (FacebookError e) {
-                Log.w("Facebook-TestActivity", "Facebook Error: " + e.getMessage());
-            }
-            final String text = "Your Wall Post: " + message;
-            TestActivity.this.runOnUiThread(new Runnable() {
-                public void run() {
-                    mText.setText(text);
-                }
-            });
         }
     }
 
@@ -201,7 +161,7 @@ public class TestActivity extends Activity {
             
             /*
             if (postId != null) {
-                Log.d("Facebook-TestActivity", "Dialog Success! post_id=" + postId);
+                Log.d("Facebook-SocialActivity", "Dialog Success! post_id=" + postId);
                 mAsyncRunner.request(postId, new WallPostRequestListener());
                 mDeleteButton.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
@@ -211,7 +171,7 @@ public class TestActivity extends Activity {
                 });
                 mDeleteButton.setVisibility(View.VISIBLE);
             } else {
-                Log.d("Facebook-TestActivity", "No wall post made");
+                Log.d("Facebook-SocialActivity", "No wall post made");
             }
             */
         }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.facebook.android;
+package com.proj.ubinfc.facebook;
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,9 +25,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.facebook.android.AsyncFacebookRunner;
+import com.facebook.android.DialogError;
+import com.facebook.android.Facebook;
+import com.facebook.android.FacebookError;
+import com.facebook.android.R;
 import com.facebook.android.Facebook.DialogListener;
-import com.facebook.android.SessionEvents.AuthListener;
-import com.facebook.android.SessionEvents.LogoutListener;
+import com.proj.ubinfc.facebook.SessionEvents.AuthListener;
+import com.proj.ubinfc.facebook.SessionEvents.LogoutListener;
 
 public class LoginButton extends ImageButton {
     

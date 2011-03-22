@@ -4,34 +4,32 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent" 
   android:background="@drawable/white">
-    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/contactTag">
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/fbTag">
         <ImageView 
-	        android:id="@+id/ImageView02" 
 	        android:layout_width="wrap_content" 
 	        android:layout_height="wrap_content" 
-	        android:src="@drawable/facebook71x71">
+	        android:src="@drawable/facebook71x71" android:id="@+id/facebookIcon">
         </ImageView>
         <TextView 
-	        android:id="@+id/TextView02" 
 	        android:text="@string/facebook" 
 	        android:layout_width="200dip" 
 	        android:layout_height="match_parent" 
 	        android:textStyle="bold" 
-	        android:textSize="14.5sp">
+	        android:textSize="14.5sp" android:id="@+id/fbTextView">
         </TextView>
-        <com.facebook.android.LoginButton
+        <com.proj.ubinfc.facebook.LoginButton
 	        android:src="@drawable/login_button"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content" android:layout_margin="0dp" android:id="@+id/login"/>
     </TableRow>
     <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/twitterTag">
         <ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/twitter72x72"></ImageView>
-        <TextView android:id="@+id/TextView01" android:layout_width="200dip" android:layout_height="match_parent" android:text="@string/twitter"></TextView>
-        <Button android:text="@string/connect" android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        <TextView android:layout_width="200dip" android:layout_height="match_parent" android:text="@string/twitter" android:id="@+id/twtTextView"></TextView>
+        <Button android:text="@string/connect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/twtLoginButton"></Button>
     </TableRow>
-    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/facebookTag">
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/contactTag">
         <ImageView android:src="@drawable/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/facebookIcon"></ImageView>
-        <TextView android:id="@+id/textView1" android:layout_height="match_parent" android:layout_width="200dip" android:text="@string/contact"></TextView>
+        <TextView android:layout_height="match_parent" android:layout_width="200dip" android:text="@string/contact" android:id="@+id/txtContact"></TextView>
     </TableRow>
     
     <TextView android:id="@+id/txt" 

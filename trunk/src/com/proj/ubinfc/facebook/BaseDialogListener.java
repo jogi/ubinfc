@@ -1,5 +1,7 @@
-package com.facebook.android;
+package com.proj.ubinfc.facebook;
 
+import com.facebook.android.DialogError;
+import com.facebook.android.FacebookError;
 import com.facebook.android.Facebook.DialogListener;
 
 /**
