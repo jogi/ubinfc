@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.facebook.android;
+package com.proj.ubinfc.facebook;
 
 import java.util.LinkedList;
 
