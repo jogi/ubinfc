@@ -2,11 +2,27 @@
 <TableLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent" 
+  android:background="@drawable/white">
     <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/contactTag">
-        <ImageView android:id="@+id/ImageView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/facebook71x71"></ImageView>
-        <TextView android:id="@+id/TextView02" android:text="@string/facebook" android:layout_width="200dip" android:layout_height="match_parent" android:textStyle="bold" android:textSize="14.5sp"></TextView>
-        <Button android:text="@string/connect" android:id="@+id/Button02" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        <ImageView 
+	        android:id="@+id/ImageView02" 
+	        android:layout_width="wrap_content" 
+	        android:layout_height="wrap_content" 
+	        android:src="@drawable/facebook71x71">
+        </ImageView>
+        <TextView 
+	        android:id="@+id/TextView02" 
+	        android:text="@string/facebook" 
+	        android:layout_width="200dip" 
+	        android:layout_height="match_parent" 
+	        android:textStyle="bold" 
+	        android:textSize="14.5sp">
+        </TextView>
+        <com.facebook.android.LoginButton
+	        android:src="@drawable/login_button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" android:layout_margin="0dp" android:id="@+id/login"/>
     </TableRow>
     <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/twitterTag">
         <ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/twitter72x72"></ImageView>
@@ -17,4 +33,30 @@
         <ImageView android:src="@drawable/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/facebookIcon"></ImageView>
         <TextView android:id="@+id/textView1" android:layout_height="match_parent" android:layout_width="200dip" android:text="@string/contact"></TextView>
     </TableRow>
+    
+    <TextView android:id="@+id/txt" 
+        android:text="@string/hello"
+        android:textColor="@drawable/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		/>
+	<Button android:id="@+id/requestButton"
+        android:text="@string/request"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:paddingRight="20dp" 
+        android:paddingLeft="20dp"
+        android:layout_margin="20dp" 
+        />
+    
+    <Button android:id="@+id/postButton" 
+        android:text="@string/post"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:paddingRight="20dp" 
+        android:paddingLeft="20dp"
+        android:layout_margin="20dp" 
+		/>        
 </TableLayout>
