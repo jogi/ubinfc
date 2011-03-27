@@ -15,7 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.facebook.android.R;
+import com.proj.ubinfc.R;
 
 public class LoginButton extends ImageButton {
     

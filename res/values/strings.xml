@@ -11,4 +11,7 @@
     <string name="askFollow">Ask to follow you on Twitter</string>
     <string name="txtTwitterBroadcast">Broadcast</string>
     <string name="txtTwitterFollow">Follow a user</string>
+    <string name="loginAlertText">Please login first!</string>
+    <string name="loginAlertOK">Ok</string>
+    <string name="loginAlertCancel">Cancel</string>
 </resources>

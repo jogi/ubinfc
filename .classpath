@@ -2,13 +2,21 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="lib" path="E:/Academics/Projects/Android/signpost/httpclient-4.0.1.jar"/>
 	<classpathentry kind="lib" path="E:/Academics/Projects/Android/signpost/signpost-commonshttp4-1.2.1.1.jar"/>
 	<classpathentry kind="lib" path="E:/Academics/Projects/Android/signpost/signpost-core-1.2.1.1.jar"/>
 	<classpathentry kind="lib" path="E:/Academics/Projects/Android/twitter4j-android-2.2.1/lib/twitter4j-async-android-2.2.1.jar"/>
-	<classpathentry kind="lib" path="E:/Academics/Projects/Android/twitter4j-android-2.2.1/lib/twitter4j-core-android-2.2.1.jar"/>
-	<classpathentry kind="src" path="facebook_src"/>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Android/twitter4j-android-2.2.1/lib/twitter4j-core-android-2.2.1.jar" sourcepath="E:/Academics/Projects/Android/twitter4j-android-2.2.1/twitter4j-core/twitter4j-core-2.2.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/E:/Academics/Projects/Android/twitter4j-android-2.2.1/twitter4j-core/twitter4j-core-2.2.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Java-libs/google-gson-1.5/gson-1.5.jar" sourcepath="E:/Academics/Projects/Java-libs/google-gson-1.5/gson-1.5-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/E:/Academics/Projects/Java-libs/google-gson-1.5/gson-1.5-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Java-libs/google-collect-1.0/guava-r08.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
