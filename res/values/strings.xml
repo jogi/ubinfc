@@ -8,4 +8,7 @@
     <string name="contact">Contacts</string>
     <string name="request">Request!</string>
     <string name="post">Post</string>
+    <string name="askFollow">Ask to follow you on Twitter</string>
+    <string name="txtTwitterBroadcast">Broadcast</string>
+    <string name="txtTwitterFollow">Follow a user</string>
 </resources>

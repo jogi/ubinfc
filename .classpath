@@ -4,8 +4,11 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/SignPost"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Twitter4j"/>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Android/signpost/httpclient-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Android/signpost/signpost-commonshttp4-1.2.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Android/signpost/signpost-core-1.2.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Android/twitter4j-android-2.2.1/lib/twitter4j-async-android-2.2.1.jar"/>
+	<classpathentry kind="lib" path="E:/Academics/Projects/Android/twitter4j-android-2.2.1/lib/twitter4j-core-android-2.2.1.jar"/>
 	<classpathentry kind="src" path="facebook_src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
