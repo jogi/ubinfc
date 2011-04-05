@@ -1,7 +1,5 @@
 package com.proj.ubinfc;
 
-import java.util.Date;
-
 import twitter4j.User;
 import android.app.Activity;
 import android.app.AlertDialog;
