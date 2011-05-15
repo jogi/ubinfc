@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.proj.ubinfc"
-      android:versionCode="1"
-      android:versionName="1.0">
-	
+	package="com.proj.ubinfc" android:versionCode="1" android:versionName="1.0">
+
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.NFC" />
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name="SocialActivity"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        
-        <activity android:name=".twitter.PrepareRequestTokenActivity" android:launchMode="singleTask">>
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<activity android:name="SocialActivity" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".twitter.PrepareRequestTokenActivity"
+			android:launchMode="singleTask">
+			>
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.DEFAULT" />
@@ -24,33 +23,52 @@
 				<data android:scheme="x-oauthflow-twitter" android:host="callback.npJWXXS9SSIQRu5WDj3g3w" />
 			</intent-filter>
 		</activity>
-		
-		        <activity android:name=".nfc.ForegroundDispatch" android:label="NFC/ForegroundDispatch">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
 
-        <activity android:name=".nfc.TechFilter" android:label="NFC/TechFilter">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
-            </intent-filter>
+		<activity android:name=".nfc.ForegroundDispatch"
+			android:label="NFC/ForegroundDispatch">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
 
-            <!-- Add a technology filter -->
-            <intent-filter>
-                <action android:name="android.nfc.action.TECH_DISCOVERED" />
-            </intent-filter>
+		<activity android:name=".nfc.TechFilter" android:label="NFC/TechFilter">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
 
-            <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/filter_nfc" />
-        </activity>
+			<!-- Add a technology filter -->
+			<intent-filter>
+				<action android:name="android.nfc.action.TECH_DISCOVERED" />
+			</intent-filter>
 
-        <activity android:name=".nfc.ForegroundNdefPush" android:label="NFC/ForegroundNdefPush">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
-            </intent-filter>
-        </activity>
-    </application>    
+			<meta-data android:name="android.nfc.action.TECH_DISCOVERED"
+				android:resource="@xml/filter_nfc" />
+		</activity>
+
+		<activity android:name="nfc.ForegroundNdefPush"
+			android:label="NFC/ForegroundNdefPush">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
+	
+		<activity android:name=".qr.EncodeActivity">
+			<intent-filter>
+				<action android:name="com.google.zxing.client.android.ENCODE" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+			<!-- This allows us to handle the Share button in Contacts. -->
+			<intent-filter>
+				<action android:name="android.intent.action.SEND" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="text/x-vcard" />
+			</intent-filter>
+		</activity>
+	</application>
+	<uses-permission android:name="android.permission.READ_CONTACTS"/>
+  	<uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+  	<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

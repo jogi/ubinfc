@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, TestActivity!</string>
-    <string name="app_name">UbiNFC - Android</string>
-    <string name="facebook">Facebook</string>
-    <string name="connect">Connect</string>
-    <string name="twitter">Twitter</string>
-    <string name="contact">Contacts</string>
-    <string name="request">Request!</string>
-    <string name="post">Post</string>
-    <string name="askFollow">Ask to follow you on Twitter</string>
-    <string name="txtTwitterBroadcast">Broadcast</string>
-    <string name="txtTwitterFollow">Follow a user</string>
-    <string name="loginAlertText">Please login first!</string>
-    <string name="loginAlertOK">Ok</string>
-    <string name="loginAlertCancel">Cancel</string>
+	<string name="hello">Hello World, TestActivity!</string>
+	<string name="app_name">UbiNFC - Android</string>
+	<string name="facebook">Facebook</string>
+	<string name="connect">Connect</string>
+	<string name="twitter">Twitter</string>
+	<string name="contact">Contacts</string>
+	<string name="request">Request!</string>
+	<string name="post">Post</string>
+	<string name="askFollow">Ask to follow you on Twitter</string>
+	<string name="txtTwitterBroadcast">Broadcast</string>
+	<string name="txtTwitterFollow">Follow a user</string>
+	<string name="loginAlertText">Please login first!</string>
+	<string name="loginAlertOK">Ok</string>
+	<string name="loginAlertCancel">Cancel</string>
+
+	<!-- QR Code strings -->
+	<string name="button_ok">OK</string>
+	<string name="contents_contact">Contact info</string>
+	<string name="contents_email">Email address</string>
+	<string name="contents_location">Geographic coordinates</string>
+	<string name="contents_phone">Phone number</string>
+	<string name="contents_sms">SMS address</string>
+	<string name="contents_text">Plain text</string>
+	<string name="msg_encode_barcode_failed">Could not generate the requested barcode.</string>
+	<string name="msg_encode_contents_failed">Could not encode a barcode from the data provided.
+	</string>
+	<string name="menu_share">Share</string>
+	<string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
 </resources>
