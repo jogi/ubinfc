@@ -28,4 +28,10 @@
 	</string>
 	<string name="menu_share">Share</string>
 	<string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
+	<string name="main_social">Social Data Exchange</string>
+	<string name="txtMainAuth">Authorization</string>
+	<string name="txtCoupons">Coupons</string>
+	<string name="txtMainProduct">Products</string>
+	<string name="butClose">Close</string>
+	<string name="butHelp">Need Help?</string>
 </resources>
