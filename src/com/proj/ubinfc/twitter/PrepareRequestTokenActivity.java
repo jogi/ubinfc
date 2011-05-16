@@ -1,5 +1,6 @@
 package com.proj.ubinfc.twitter;
 
+import com.proj.ubinfc.MainActivity;
 import com.proj.ubinfc.SocialActivity;
 
 import oauth.signpost.OAuth;
@@ -103,7 +104,7 @@ public class PrepareRequestTokenActivity extends Activity {
 				String secret = prefs.getString(OAuth.OAUTH_TOKEN_SECRET, "");
 				
 				consumer.setTokenWithSecret(token, secret);
-				context.startActivity(new Intent(context,SocialActivity.class));
+				context.startActivity(new Intent(context, MainActivity.class).putExtra("tab", 2));
 
 				executeAfterAccessTokenRetrieval();
 				
