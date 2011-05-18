@@ -34,4 +34,5 @@
 	<string name="txtMainProduct">Products</string>
 	<string name="butClose">Close</string>
 	<string name="butHelp">Need Help?</string>
+	<string name="txtScanCoupon">Scan a coupon tag to continue</string>
 </resources>

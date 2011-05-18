@@ -47,14 +47,18 @@ public class ForegroundDispatch extends Activity {
     private String[][] mTechLists;
     private TextView mText;
     private int mCount = 0;
+    private String next = "";
 
     @Override
     public void onCreate(Bundle savedState) {
         super.onCreate(savedState);
 
         setContentView(R.layout.foreground_dispatch);
-        mText = (TextView) findViewById(R.id.text);
+        mText = (TextView) findViewById(R.id.txtScanCoupon);
         mText.setText("Scan a tag");
+        
+        Log.i("Intent", getIntent().getExtras().getString("next"));
+        next = getIntent().getExtras().getString("next");
 
         mAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -89,6 +93,7 @@ public class ForegroundDispatch extends Activity {
     @Override
     public void onNewIntent(Intent intent) {
         Log.i("Foreground dispatch", "Discovered tag with intent: " + intent);
+        Log.i("Intent", next);//use this to go to a specific tab
         Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
         NdefMessage[] msgs;
         if (rawMsgs != null && rawMsgs.length > 0) {
