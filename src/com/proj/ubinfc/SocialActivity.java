@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +18,13 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.proj.ubinfc.nfc.ForegroundDispatch;
 import com.proj.ubinfc.nfc.ForegroundNdefPush;
-import com.proj.ubinfc.nfc.record.SocialRequestRecord;
+import com.proj.ubinfc.nfc.record.NFCRequestRecord;
+import com.proj.ubinfc.obj.TwitterRecord;
 import com.proj.ubinfc.twitter.LoginButton;
 import com.proj.ubinfc.twitter.TwitterUtils;
 
 public class SocialActivity extends Activity {
 	
-	private final Handler notificationHandler = new Handler();
 	private String notificationText = "";
 	
 	final Runnable notification = new Runnable() {
@@ -72,10 +71,14 @@ public class SocialActivity extends Activity {
 						Log.e("Twitter", "Error retrieving current user");
 					}
 	            	
-					SocialRequestRecord reqRecord = new SocialRequestRecord();
-					reqRecord.setId(user.getId());
+					NFCRequestRecord reqRecord = new NFCRequestRecord();
 					reqRecord.setRequestType("twitter");
-					reqRecord.setTwitterScreenName(user.getScreenName());
+					
+					TwitterRecord twitterRecord = new TwitterRecord();
+					twitterRecord.setId(user.getId());
+					twitterRecord.setScreenName(user.getScreenName());
+					
+					reqRecord.setSpecificRequest(new Gson().toJson(twitterRecord));
 					
 					String jsonRecord = new Gson().toJson(reqRecord);
 					Log.i("JSON Object", jsonRecord);
@@ -94,7 +97,8 @@ public class SocialActivity extends Activity {
             	if(TwitterUtils.isAuthenticated(prefs))
             	{
 	            	Log.i("Twitter follow request", "Follow request started. Waiting for nfc tag.");
-	            	Intent i = new Intent(getApplicationContext(), ForegroundDispatch.class);	            	
+	            	Intent i = new Intent(getApplicationContext(), ForegroundDispatch.class);
+	            	i.putExtra("next", "SocialActivity");
 					startActivity(i);
             	} else {
             		//show dialog

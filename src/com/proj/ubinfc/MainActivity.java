@@ -18,19 +18,19 @@ public class MainActivity extends TabActivity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.main);
+        
         final TabHost tabHost = getTabHost();
-        Resources res = getResources();
-        Intent intent = getIntent();     
+        Resources res = getResources();    
         
 
         tabHost.addTab(tabHost.newTabSpec("social")
-                .setIndicator("Social")
+                .setIndicator("Social", res.getDrawable(R.drawable.ic_tab_social))
                 .setContent(new Intent(this, SocialActivity.class)));
 
         tabHost.addTab(tabHost.newTabSpec("coupons")
                 .setIndicator("Coupons")
-                .setContent(new Intent(this, MainListActivity.class)));
+                .setContent(new Intent(this, CouponsActivity.class)));
         
         // This tab sets the intent flag so that it is recreated each time
         // the tab is clicked.
@@ -43,7 +43,7 @@ public class MainActivity extends TabActivity {
                 .setIndicator("Authenticate")
                 .setContent(new Intent(this, SocialActivity.class)));       
         
-        
+        tabHost.setCurrentTab(3);
     }
 	
 	@Override
